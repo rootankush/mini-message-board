@@ -34,6 +34,16 @@ app.post("/new", (req, res) => {
   res.redirect("/");
 });
 
+app.get("/open", (req, res) => {
+  res.render("./new.ejs", { title: "Open Message", messages: messages });
+});
+
+app.get("/message/:id", (req, res) => {
+  const messageIndex = req.params.id;
+  const myMessage = messages[messageIndex];
+  res.render("./new.ejs", { title: "Opened Message", message: myMessage });
+});
+
 app.listen(port, () => {
   console.log(`App listening at port ${port}`);
 });

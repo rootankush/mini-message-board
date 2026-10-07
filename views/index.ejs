@@ -10,8 +10,9 @@
 </head>
 
 <body>
+  <a href="/new">New Message</a>
   <ol>
-    <% for(const message of messages) { %>
+    <% for(const [index, message] of messages.entries()) { %>
       <li>
         <h2>
           <%= message.text %>
@@ -23,6 +24,7 @@
           <%= message.added %>
         </h3>
       </li>
+      <a href="/message/<%= index %>">Open</a>
       <hr>
       <% } %>
   </ol>
